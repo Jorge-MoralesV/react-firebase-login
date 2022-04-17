@@ -2,6 +2,9 @@ import React, { useState } from 'react'
 import { useAuth } from '../context/AuthContext'
 import { useNavigate, Link } from 'react-router-dom'
 import { Alert } from './Alert'
+import logo from '../assets/img/logo.svg'
+import logotec from '../assets/img/logotec.svg'
+import { Typography, Toolbar, AppBar, Button, TextField } from '@mui/material'
 
 function Login() {
 
@@ -51,63 +54,77 @@ function Login() {
     return (
         <div className='w-full max-w-xs m-auto'>
 
-            {error && <Alert message={error}></Alert>}
+            <AppBar position="fixed" color="primary">
+                <Toolbar>
+                    <img src={logo} className='img-fluid mr-4'></img>
+                    <Typography className='text-center' variant="h6" sx={{ flexGrow: 1 }}>
+                        Cuestionario de percepción de clima laboral y no discriminación
+                    </Typography>
+                    <img src={logotec} className='img-fluid mr-2'></img>
+                </Toolbar>
+            </AppBar>
 
-            <form
-                onSubmit={handleSubmit}
-                className='bg-white shadow-md rounded px-8 pt-6 pb-6 mb-4'>
+            <div className='mt-20'>
 
-                <div className='mb-4'>
-                    <label
-                        className='block text-sm font-bold mb-2'
-                        htmlFor='email'>
-                        Email:
-                    </label>
-                    <input
-                        className='shadow border rounded w-full py-2 px-3 text-gray-600 leading-tight focus:outline-none focus:shadow-outline'
-                        type='email'
-                        name='email'
-                        placeholder='Enter your email'
-                        onChange={handleChange}>
-                    </input>
-                </div>
+                <br></br>
 
-                <div>
-                    <label
-                        className='block text-sm font-bold mb-2'
-                        htmlFor='password'>
-                        Password:
-                    </label>
-                    <input
-                        className='shadow border rounded w-full py-2 px-3 text-gray-600 leading-tight focus:outline-none focus:shadow-outline'
-                        type='password'
-                        name='password'
-                        placeholder='Enter your password'
-                        onChange={handleChange}>
-                    </input>
-                </div>
+                {error && <Alert message={error}></Alert>}
 
-                <div className='flex items-center justify-between mt-4'>
-                    <button
-                        className='text-sm bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline'>
-                        Login
-                    </button>
+                <form
+                    //onSubmit={handleSubmit}
+                    className='bg-white shadow-md rounded px-8 pt-6 pb-6 mb-4'>
 
-                    <a
-                        onClick={handleResetPassword}
-                        className='inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800'>
-                        Forgot password?
-                    </a>
-                </div>
+                    <div className='mb-4'>
+                        <label
+                            className='block text-sm font-bold mb-2'
+                            htmlFor='email'>
+                            Correo:
+                        </label>
+                        <TextField
+                            type='email'
+                            name='email'
+                            className='w-full'
+                            label='Ingresa tu correo'
+                            variant="outlined"
+                            onChange={handleChange}></TextField>
 
-            </form>
+                    </div>
 
-            <p className='my-4 text-sm flex justify-between px-3'>Don't have a account <Link to='/register'>Register</Link> </p>
+                    <div>
+                        <label
+                            className='block text-sm font-bold mb-2'
+                            htmlFor='password'>
+                            Contraseña:
+                        </label>
+                        <TextField
+                            type='password'
+                            name='password'
+                            className='w-full'
+                            label="Ingresa tu contraseña"
+                            variant="outlined"
+                            onChange={handleChange} />
+                    </div>
 
-            <button
-                className='bg-slate-50 hover:bg-slate-200 shadow-md rounded border-2 border-gray-300 py-2 px-4 w-full'
-                onClick={handleGoogleSingIn}>Login with Google
-            </button>
+                    <div className='flex items-center justify-between mt-4'>
+                        <Button
+                            variant='contained'
+                            color='primary'
+                            onClick={handleSubmit}
+                            disableElevation>
+                            <p>Ingresar</p>
+                        </Button>
+
+                        <a
+                            onClick={handleResetPassword}
+                            className='inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800'>
+                            Olvide mi contraseña
+                        </a>
+                    </div>
+
+                </form>
+            </div>
+
+            <p className='text-blue-800 my-4 text-sm flex justify-between px-3'>No tengo una cuenta <Link className='hover:text-blue-500' to='/register'>Registrarse</Link> </p>
 
         </div>
     )
