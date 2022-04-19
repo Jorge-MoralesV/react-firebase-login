@@ -13,7 +13,7 @@ function Login() {
         password: ''
     })
 
-    const { login, loginWithGoogle, resetPassword } = useAuth()
+    const { login, resetPassword } = useAuth()
     const Navigate = useNavigate()
     const [error, setError] = useState()
 
@@ -26,15 +26,6 @@ function Login() {
         setError('')
         try {
             await login(user.email, user.password)
-            Navigate('/')
-        } catch (error) {
-            setError(error.message)
-        }
-    }
-
-    const handleGoogleSingIn = async () => {
-        try {
-            await loginWithGoogle()
             Navigate('/')
         } catch (error) {
             setError(error.message)

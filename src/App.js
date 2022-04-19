@@ -8,8 +8,18 @@ import Register from './components/Register'
 import { AuthProvider } from './context/AuthContext'
 import theme from './temaConfig'
 
-
 function App() {
+
+  /*const [usuarioGlobal, setUsuarioGlobal] = useState(null)
+
+  onAuthStateChanged(auth, (usuarioFirebase) => {
+    if (usuarioFirebase) {
+      setUsuarioGlobal(usuarioFirebase)
+    } else {
+      setUsuarioGlobal(null)
+    }
+  })*/
+
   return (
 
     <ThemeProvider theme={theme}>
@@ -24,7 +34,7 @@ function App() {
             <Route path='/login' element={<Login></Login>}></Route>
 
             <Route path='/register' element={<Register></Register>}></Route>
-            
+
           </Routes>
         </AuthProvider>
       </div>
