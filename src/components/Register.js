@@ -28,7 +28,17 @@ function Register() {
             await signUp(user.email, user.password)
             Navigate('/')
         } catch (error) {
-            setError(error.message)
+            if (error.code === "auth/weak-password") {
+                setError('La contraseña debe ser mínimo de 6 caracteres.')
+            } if (error.code === "auth/invalid-email") {
+                setError('Correo invalido.')
+            } if (error.code === "auth/user-not-found") {
+                setError('Usuario no encontrado.')
+            } if (error.code === "auth/wrong-password") {
+                setError('La contraseña es incorrecta')
+            } else {
+                setError('Error desconocido.')
+            }
         }
     }
 
@@ -52,8 +62,7 @@ function Register() {
                 {error && <Alert message={error}></Alert>}
 
                 <form
-                    //onSubmit={handleSubmit}
-                    className='bg-white shadow-md rounded px-8 pt-6 pb-6 mb-4'>
+                    className='bg-light shadow-md rounded px-8 pt-6 pb-6 mb-4'>
 
                     <div className='mb-4'>
                         <label
@@ -64,7 +73,7 @@ function Register() {
                         <TextField
                             type='email'
                             name='email'
-                            className='w-full'
+                            className='w-full bg-white'
                             label='Ingresa tu correo'
                             variant="outlined"
                             onChange={handleChange} />
@@ -79,7 +88,7 @@ function Register() {
                         <TextField
                             type='password'
                             name='password'
-                            className='w-full'
+                            className='w-full bg-white'
                             label="Ingresa tu contraseña"
                             variant="outlined"
                             onChange={handleChange} />

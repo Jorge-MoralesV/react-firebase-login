@@ -63,7 +63,7 @@ function Login() {
 
                 <form
                     //onSubmit={handleSubmit}
-                    className='bg-white shadow-md rounded px-8 pt-6 pb-6 mb-4'>
+                    className='bg-light shadow-md rounded px-8 pt-6 pb-6 mb-4'>
 
                     <div className='mb-4'>
                         <label
@@ -74,11 +74,10 @@ function Login() {
                         <TextField
                             type='email'
                             name='email'
-                            className='w-full'
+                            className='w-full bg-white'
                             label='Ingresa tu correo'
                             variant="outlined"
                             onChange={handleChange}></TextField>
-
                     </div>
 
                     <div>
@@ -90,7 +89,7 @@ function Login() {
                         <TextField
                             type='password'
                             name='password'
-                            className='w-full'
+                            className='w-full bg-white'
                             label="Ingresa tu contraseña"
                             variant="outlined"
                             onChange={handleChange} />

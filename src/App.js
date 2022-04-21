@@ -10,20 +10,10 @@ import theme from './temaConfig'
 
 function App() {
 
-  /*const [usuarioGlobal, setUsuarioGlobal] = useState(null)
-
-  onAuthStateChanged(auth, (usuarioFirebase) => {
-    if (usuarioFirebase) {
-      setUsuarioGlobal(usuarioFirebase)
-    } else {
-      setUsuarioGlobal(null)
-    }
-  })*/
-
   return (
 
     <ThemeProvider theme={theme}>
-      <div className='bg-slate-300 h-screen text-black flex'>
+      <div className=' h-screen text-black flex'>
         <AuthProvider >
           <Routes>
 

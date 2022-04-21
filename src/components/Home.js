@@ -6,13 +6,13 @@ import { Typography, Toolbar, AppBar, Button, Select, TextField, MenuItem, IconB
 import { app } from '../firebase';
 import { getFirestore, collection, addDoc } from 'firebase/firestore'
 import { useAuth } from '../context/AuthContext'
-import { Alert } from './Alert';
+import { AlertGod } from './AlertGod';
 
 const firestore = getFirestore(app)
 
 const Home = () => {
 
-    const [error, setError] = useState()
+    const [error, setError] = useState(false)
 
     const { user, logout, loading } = useAuth()
 
@@ -108,269 +108,12 @@ const Home = () => {
             await addDoc(collection(firestore, 'cuestionario'), {
                 ...usuario
             })
+            setError('Tus respuestas han sido enviadas')
         } catch (error) {
             setError(error.message)
         }
         setUsuario({ ...valorInicial })
     }
-
-    /*const [arrayDocumentos, setArrayDocumentos] = useState(null)
-
-    async function buscarData(idDocumento) {
-        const docuRef = doc(firestore, `/cuestionario/${idDocumento}`)
-        const consulta = await getDoc(docuRef)
-        if (consulta.exists()) {
-            const infoDocu = consulta.data()
-            return infoDocu.respuesta
-        } else {
-            await setDoc(docuRef, { respuesta: [...Data] })
-            const consulta = await getDoc(docuRef)
-            const infoDocu = consulta.data()
-            return infoDocu.respuesta
-        }
-    }
-
-    useEffect(() => {
-        async function fetchDoc() {
-            const documentosObt = buscarData(user_email)
-            setArrayDocumentos(documentosObt)
-        }
-        fetchDoc()
-    }, [])
-
-    async function handleSubmit(e) {
-        e.preventDefault();
-        const sexo = e.target.id_sexo.value
-        const edad = e.target.id_edad.value
-        const estado_civil = e.target.id_estado_civil.value
-        const antiguedad = e.target.id_antiguedad.value
-        const escolaridad = e.target.id_escolaridad.value
-        const horario_entrada = e.target.id_horario_entrada.value
-        const horario_salida = e.target.id_horario_salida.value
-        const plaza = e.target.id_plaza.value
-        const otro = e.target.id_otro.value
-        const discapacidad = e.target.id_discapacidad.value
-        const cual_discapacidad = e.target.id_cual_discapacidad.value
-        const sector_poblacion = e.target.id_sector_poblacion.value
-        const cual_sector = e.target.id_cual_sector.value
-        const politica_igualdad = e.target.id_politica_igualdad.value
-        const codigo_etica = e.target.id_codigo_etica.value
-        const comite_igualdad = e.target.id_comite_igualdad.value
-        const mecanismo_prevencion = e.target.id_mecanismo_prevencion.value
-        const pregunta_1 = e.target.id_pregunta_1.value
-        const pregunta_2 = e.target.id_pregunta_2.value
-        const pregunta_3 = e.target.id_pregunta_3.value
-        const pregunta_4 = e.target.id_pregunta_4.value
-        const pregunta_5 = e.target.id_pregunta_5.value
-        const pregunta_6 = e.target.id_pregunta_6.value
-        const pregunta_7 = e.target.id_pregunta_7.value
-        const pregunta_8 = e.target.id_pregunta_8.value
-        const pregunta_9 = e.target.id_pregunta_9.value
-        const pregunta_10 = e.target.id_pregunta_10.value
-        const pregunta_11 = e.target.id_pregunta_11.value
-        const pregunta_12 = e.target.id_pregunta_12.value
-        const pregunta_13 = e.target.id_pregunta_13.value
-        const pregunta_14 = e.target.id_pregunta_14.value
-        const pregunta_15 = e.target.id_pregunta_15.value
-        const pregunta_16 = e.target.id_pregunta_16.value
-        const pregunta_17 = e.target.id_pregunta_17.value
-        const pregunta_18 = e.target.id_pregunta_18.value
-        const pregunta_19 = e.target.id_pregunta_19.value
-        const pregunta_20 = e.target.id_pregunta_20.value
-        const pregunta_21 = e.target.id_pregunta_21.value
-        const pregunta_22 = e.target.id_pregunta_22.value
-        const pregunta_23 = e.target.id_pregunta_23.value
-        const pregunta_24 = e.target.id_pregunta_24.value
-        const pregunta_25 = e.target.id_pregunta_25.value
-        const pregunta_26 = e.target.id_pregunta_26.value
-        const pregunta_27 = e.target.id_pregunta_27.value
-        const pregunta_28 = e.target.id_pregunta_28.value
-        const pregunta_29 = e.target.id_pregunta_29.value
-        const pregunta_30 = e.target.id_pregunta_30.value
-        const pregunta_31 = e.target.id_pregunta_31.value
-        const pregunta_32 = e.target.id_pregunta_32.value
-        const pregunta_33 = e.target.id_pregunta_33.value
-        const pregunta_34 = e.target.id_pregunta_34.value
-        const pregunta_35 = e.target.id_pregunta_35.value
-        const pregunta_36 = e.target.id_pregunta_36.value
-        const pregunta_37 = e.target.id_pregunta_37.value
-        const pregunta_38 = e.target.id_pregunta_38.value
-        const pregunta_39 = e.target.id_pregunta_39.value
-        const pregunta_40 = e.target.id_pregunta_40.value
-        const pregunta_41 = e.target.id_pregunta_40.value
-        const pregunta_42 = e.target.id_pregunta_42.value
-        const pregunta_43 = e.target.id_pregunta_43.value
-        const pregunta_44 = e.target.id_pregunta_44.value
-        const pregunta_45 = e.target.id_pregunta_45.value
-        const pregunta_46 = e.target.id_pregunta_46.value
-        const pregunta_47 = e.target.id_pregunta_47.value
-        const pregunta_48 = e.target.id_pregunta_48.value
-        const pregunta_49 = e.target.id_pregunta_49.value
-        const pregunta_50 = e.target.id_pregunta_50.value
-        const pregunta_51 = e.target.id_pregunta_51.value
-        const pregunta_52 = e.target.id_pregunta_52.value
-        const pregunta_53 = e.target.id_pregunta_53.value
-        const pregunta_54 = e.target.id_pregunta_54.value
-        const pregunta_55 = e.target.id_pregunta_55.value
-        const pregunta_56 = e.target.id_pregunta_56.value
-
-        const nvoArrayRes = [
-            ...arrayDocumentos, {
-                sexo: sexo,
-                edad: edad,
-                estado_civil: estado_civil,
-                antiguedad: antiguedad,
-                escolaridad: escolaridad,
-                horario_entrada: horario_entrada,
-                horario_salida: horario_salida,
-                plaza: plaza,
-                otro: otro,
-                discapacidad: discapacidad,
-                cual_discapacidad: cual_discapacidad,
-                sector_poblacion: sector_poblacion,
-                cual_sector: cual_sector,
-                politica_igualdad: politica_igualdad,
-                codigo_etica: codigo_etica,
-                comite_igualdad: comite_igualdad,
-                mecanismo_prevencion: mecanismo_prevencion,
-                pregunta_1: pregunta_1,
-                pregunta_2: pregunta_2,
-                pregunta_3: pregunta_3,
-                pregunta_4: pregunta_4,
-                pregunta_5: pregunta_5,
-                pregunta_6: pregunta_6,
-                pregunta_7: pregunta_7,
-                pregunta_8: pregunta_8,
-                pregunta_9: pregunta_9,
-                pregunta_10: pregunta_10,
-                pregunta_11: pregunta_11,
-                pregunta_12: pregunta_12,
-                pregunta_13: pregunta_13,
-                pregunta_14: pregunta_14,
-                pregunta_15: pregunta_15,
-                pregunta_16: pregunta_16,
-                pregunta_17: pregunta_17,
-                pregunta_18: pregunta_18,
-                pregunta_19: pregunta_19,
-                pregunta_20: pregunta_20,
-                pregunta_21: pregunta_21,
-                pregunta_22: pregunta_22,
-                pregunta_23: pregunta_23,
-                pregunta_24: pregunta_24,
-                pregunta_25: pregunta_25,
-                pregunta_26: pregunta_26,
-                pregunta_27: pregunta_27,
-                pregunta_28: pregunta_28,
-                pregunta_29: pregunta_29,
-                pregunta_30: pregunta_30,
-                pregunta_31: pregunta_31,
-                pregunta_32: pregunta_32,
-                pregunta_33: pregunta_33,
-                pregunta_34: pregunta_34,
-                pregunta_35: pregunta_35,
-                pregunta_36: pregunta_36,
-                pregunta_37: pregunta_37,
-                pregunta_38: pregunta_38,
-                pregunta_39: pregunta_39,
-                pregunta_40: pregunta_40,
-                pregunta_41: pregunta_41,
-                pregunta_42: pregunta_42,
-                pregunta_43: pregunta_43,
-                pregunta_44: pregunta_44,
-                pregunta_45: pregunta_45,
-                pregunta_46: pregunta_46,
-                pregunta_47: pregunta_47,
-                pregunta_48: pregunta_48,
-                pregunta_49: pregunta_49,
-                pregunta_50: pregunta_50,
-                pregunta_51: pregunta_51,
-                pregunta_52: pregunta_52,
-                pregunta_53: pregunta_53,
-                pregunta_54: pregunta_54,
-                pregunta_55: pregunta_55,
-                pregunta_56: pregunta_56,
-            },
-        ]
-        const dataRef = doc(firestore, `/cuestionario/${user_email}`)
-        updateDoc(dataRef, { respuesta: [...nvoArrayRes] })
-        setArrayDocumentos(nvoArrayRes)
-    }
-
-    const [data, setData] = useState({
-        sexo: '',
-        edad: '',
-        estado_civil: '',
-        antiguedad: '',
-        escolaridad: '',
-        horario_entrada: '',
-        horario_salida: '',
-        plaza: '',
-        otro: '',
-        discapacidad: '',
-        cual_discapacidad: '',
-        sector_poblacion: '',
-        cual_sector: '',
-        politica_igualdad: '',
-        codigo_etica: '',
-        comite_igualdad: '',
-        mecanismo_prevencion: '',
-        pregunta_1: '',
-        pregunta_2: '',
-        pregunta_3: '',
-        pregunta_4: '',
-        pregunta_5: '',
-        pregunta_6: '',
-        pregunta_7: '',
-        pregunta_8: '',
-        pregunta_9: '',
-        pregunta_10: '',
-        pregunta_11: '',
-        pregunta_12: '',
-        pregunta_13: '',
-        pregunta_14: '',
-        pregunta_15: '',
-        pregunta_16: '',
-        pregunta_17: '',
-        pregunta_18: '',
-        pregunta_19: '',
-        pregunta_20: '',
-        pregunta_21: '',
-        pregunta_22: '',
-        pregunta_23: '',
-        pregunta_24: '',
-        pregunta_25: '',
-        pregunta_26: '',
-        pregunta_27: '',
-        pregunta_28: '',
-        pregunta_29: '',
-        pregunta_30: '',
-        pregunta_31: '',
-        pregunta_32: '',
-        pregunta_33: '',
-        pregunta_34: '',
-        pregunta_35: '',
-        pregunta_36: '',
-        pregunta_37: '',
-        pregunta_38: '',
-        pregunta_39: '',
-        pregunta_40: '',
-        pregunta_41: '',
-        pregunta_42: '',
-        pregunta_43: '',
-        pregunta_44: '',
-        pregunta_45: '',
-        pregunta_46: '',
-        pregunta_47: '',
-        pregunta_48: '',
-        pregunta_49: '',
-        pregunta_50: '',
-        pregunta_51: '',
-        pregunta_52: '',
-        pregunta_53: '',
-        pregunta_54: '',
-        pregunta_55: '',
-        pregunta_56: '',
-    })*/
 
     const handleLogout = async () => {
         try {
@@ -386,9 +129,16 @@ const Home = () => {
 
     return (
         <Container>
+
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+
             <form
                 id='task-form'
-                className='card card-body bg-slate-300 f-screen w-full max-w-xl m-auto'>
+                className='card card-body bg-light f-screen w-full max-w-xl m-auto'>
 
                 <AppBar position="fixed" color="primary">
                     <Toolbar>
@@ -402,13 +152,11 @@ const Home = () => {
                     </Toolbar>
                 </AppBar>
 
-                <br></br>
-
                 <div
-                    className='px-8 pt-4 pb-4 mt-20'>
+                    className='px-8 p-4'>
                     <h1
                         className='text-xl text-center'>
-                        Sesión como: {user.displayName || user.email}
+                        Sesión como: &nbsp; {user.email}
                     </h1>
                 </div>
 
@@ -421,7 +169,7 @@ const Home = () => {
                     </label>
 
                     <div className='mb-4'>
-                        <FormControl >
+                        <FormControl>
                             <FormLabel id='sexo-label'>Sexo</FormLabel>
                             <RadioGroup
                                 id='id_sexo'
@@ -442,6 +190,7 @@ const Home = () => {
                         <FormControl>
                             <FormLabel >Edad</FormLabel>
                             <RadioGroup
+                                required
                                 id='id_edad'
                                 row
                                 name="edad"
@@ -494,7 +243,7 @@ const Home = () => {
                                 value={usuario.antiguedad}
                                 inputProps={{ 'aria-label': 'Without label' }}
                             >
-                                <MenuItem value="">
+                                <MenuItem value="Ninguno">
                                     <em>Ninguno</em>
                                 </MenuItem>
                                 <MenuItem value='menos-de-1'>Menos de un año</MenuItem>
@@ -517,7 +266,7 @@ const Home = () => {
                                 value={usuario.escolaridad}
                                 inputProps={{ 'aria-label': 'Without label' }}
                             >
-                                <MenuItem value="">
+                                <MenuItem value="Ninguno">
                                     <em>Ninguno</em>
                                 </MenuItem>
                                 <MenuItem value='sin-escolaridad'>Sin escolaridad</MenuItem>
@@ -545,7 +294,7 @@ const Home = () => {
                                 value={usuario.horario_entrada}
                                 inputProps={{ 'aria-label': 'Without label' }}
                             >
-                                <MenuItem value="">
+                                <MenuItem value="Ninguno">
                                     <em>Ninguno</em>
                                 </MenuItem>
                                 <MenuItem value='01'>01</MenuItem>
@@ -571,7 +320,7 @@ const Home = () => {
                                 value={usuario.horario_salida}
                                 inputProps={{ 'aria-label': 'Without label' }}
                             >
-                                <MenuItem value="">
+                                <MenuItem value="Ninguno">
                                     <em>Ninguno</em>
                                 </MenuItem>
                                 <MenuItem value='01'>01</MenuItem>
@@ -609,13 +358,15 @@ const Home = () => {
 
                     <div className='mb-4'>
                         <FormControl fullWidth>
-                            <FormLabel >Otro especifique</FormLabel>
+                            <FormLabel >Otro</FormLabel>
                             <TextField
+                                required
                                 id="id_otro"
                                 type='text'
                                 name='otro'
                                 className='w-full'
                                 variant="outlined"
+                                placeholder='Especifique'
                                 value={usuario.otro}
                                 onChange={handleInputChange} />
                         </FormControl>
@@ -649,7 +400,7 @@ const Home = () => {
                                 value={usuario.cual_discapacidad}
                                 inputProps={{ 'aria-label': 'Without label' }}
                             >
-                                <MenuItem value="">
+                                <MenuItem value="Ninguno">
                                     <em>Ninguno</em>
                                 </MenuItem>
                                 <MenuItem value='intelectual'>Intelectual</MenuItem>
@@ -694,7 +445,7 @@ const Home = () => {
                                 value={usuario.cual_sector}
                                 inputProps={{ 'aria-label': 'Without label' }}
                             >
-                                <MenuItem value="">
+                                <MenuItem value="Ninguno">
                                     <em>Ninguno</em>
                                 </MenuItem>
                                 <MenuItem value='diversidad'>De la diversidad sexual</MenuItem>
@@ -1850,17 +1601,20 @@ const Home = () => {
 
                 </div>
 
-                {error && <Alert message={error}></Alert>}
+                {error && <AlertGod message={error}></AlertGod>}
 
                 <Button
                     variant='contained'
                     color='primary'
                     onClick={handleSubmit}
-                    disableElevation>
-                    <p>Enviar</p>
+                    disableElevation
+                >
+                    Enviar
                 </Button>
 
             </form>
+
+            <br></br>
 
         </Container>
     )
