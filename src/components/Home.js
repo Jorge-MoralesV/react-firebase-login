@@ -274,7 +274,7 @@ const Home = () => {
                                 <MenuItem value='secundaria'>Secundaria</MenuItem>
                                 <MenuItem value='bachillerato-preparatoria'>Bachillerato o preparatoria</MenuItem>
                                 <MenuItem value='carrera-tecnica'>Carrera técnica</MenuItem>
-                                <MenuItem value='licenciatura'>Licanciatura</MenuItem>
+                                <MenuItem value='licenciatura'>Licenciatura</MenuItem>
                                 <MenuItem value='maestria'>Maestria</MenuItem>
                                 <MenuItem value='doctorado'>Doctorado</MenuItem>
                             </Select>
@@ -508,7 +508,7 @@ const Home = () => {
                         </FormControl>
                     </div>
 
-                    <div className='mb-4'>
+                    <div className=''>
                         <FormControl>
                             <FormLabel >¿En su centro de trabajo existe un mecanismo para prevenir, atender y sancionar las prácticas de discriminación y violencia laboral?</FormLabel>
                             <RadioGroup
@@ -583,7 +583,7 @@ const Home = () => {
                         </FormControl>
                     </div>
 
-                    <div className='mb-4'>
+                    <div className=''>
                         <FormControl>
                             <FormLabel >4. ¿Para su contratación fue determinante su apariencia física?</FormLabel>
                             <RadioGroup
@@ -663,7 +663,7 @@ const Home = () => {
                         </FormControl>
                     </div>
 
-                    <div className='mb-4'>
+                    <div className=''>
                         <FormControl>
                             <FormLabel >8. ¿En los últimos 12 meses usted ha participado en programas de capacitación?</FormLabel>
                             <RadioGroup
@@ -781,7 +781,7 @@ const Home = () => {
                         </FormControl>
                     </div>
 
-                    <div className='mb-4'>
+                    <div className=''>
                         <FormControl>
                             <FormLabel >14.	En los últimos 12 meses le han realizado una evaluación de desempeño.</FormLabel>
                             <RadioGroup
@@ -953,7 +953,7 @@ const Home = () => {
                         </FormControl>
                     </div>
 
-                    <div className='mb-4'>
+                    <div className=''>
                         <FormControl>
                             <FormLabel >23.	En su centro de trabajo usted puede acercarse a su jefa (e) inmediata (o)n para hablar sobre cuestiones relacionadas con horarios que le estén afectando.</FormLabel>
                             <RadioGroup
@@ -1215,7 +1215,7 @@ const Home = () => {
                         </FormControl>
                     </div>
 
-                    <div className='mb-4'>
+                    <div className=''>
                         <FormControl>
                             <FormLabel >37.	Si manifiesto mi preocupación sobre algún asunto relacionado con la igualdad de género o prácticas discriminatorias, se le da seguimiento.</FormLabel>
                             <RadioGroup
@@ -1355,7 +1355,7 @@ const Home = () => {
                         </FormControl>
                     </div>
 
-                    <div className='mb-4'>
+                    <div className=''>
                         <FormControl>
                             <FormLabel >45.	En caso de ser acosada (o) u hostigada (o) sexual o laboralmente en su centro de trabajo sabe a qué autoridad puede dirigirse para denunciarlo.</FormLabel>
                             <RadioGroup
@@ -1453,7 +1453,7 @@ const Home = () => {
                         </FormControl>
                     </div>
 
-                    <div className='mb-4'>
+                    <div className=''>
                         <FormControl>
                             <FormLabel >50.	En su centro de trabajo se utiliza lenguaje incluyente y no sexista.</FormLabel>
                             <RadioGroup
@@ -1499,7 +1499,7 @@ const Home = () => {
                         </FormControl>
                     </div>
 
-                    <div className='mb-4'>
+                    <div className=''>
                         <FormControl>
                             <FormLabel >52.	En su centro de trabajo ha sido testigo de actos discriminatorios por ser mujer u hombre, por edad, apariencia, discapacidad, entre otros.</FormLabel>
                             <RadioGroup
@@ -1581,7 +1581,7 @@ const Home = () => {
                         </FormControl>
                     </div>
 
-                    <div className='mb-4'>
+                    <div className=''>
                         <FormControl>
                             <FormLabel >56.	En su centro de trabajo se recibe un salario igual por igual trabajo sin importar sexo, apariencia, edad u otras características personales.</FormLabel>
                             <RadioGroup
