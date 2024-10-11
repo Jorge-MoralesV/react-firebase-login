@@ -1,6 +1,6 @@
 import { ThemeProvider } from '@mui/system'
 import React from 'react'
-import { Route, Router, Routes } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 import { ProtectedRoute } from './components/ProtectedRoute'
 import { AuthProvider } from './context/AuthContext'
 import theme from './temaConfig'
