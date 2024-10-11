@@ -1,27 +1,39 @@
+import { ThemeProvider } from '@mui/system'
 import React from 'react'
-import { Route, Routes } from 'react-router-dom'
-import Home from './components/Home'
-import Login from './components/Login'
+import { Route, Router, Routes } from 'react-router-dom'
 import { ProtectedRoute } from './components/ProtectedRoute'
-import Register from './components/Register'
 import { AuthProvider } from './context/AuthContext'
-
+import theme from './temaConfig'
+import Home from './pages/Home'
+import Login from './pages/Login'
+import Register from './pages/Register'
+import FormProvider from './context/FormContext'
 
 function App() {
-  return (
-    <div className='bg-slate-300 h-screen text-black flex'>
-      <AuthProvider>
-        <Routes>
-          <Route path='/' element={
-            <ProtectedRoute><Home></Home></ProtectedRoute>
-          }></Route>
-          <Route path='/login' element={<Login></Login>}></Route>
-          <Route path='/register' element={<Register></Register>}></Route>
-        </Routes>
-      </AuthProvider>
-    </div>
 
-  )
+  return (
+
+    <ThemeProvider theme={theme}>
+      <div className=' h-screen text-black flex'>
+        <AuthProvider >
+          <FormProvider>
+            <Routes>
+
+              <Route path='/' element={
+                <ProtectedRoute><Home /></ProtectedRoute>
+              } />
+
+              <Route path='/login' element={<Login />} />
+
+              <Route path='/register' element={<Register />} />
+
+            </Routes>
+          </FormProvider>
+        </AuthProvider>
+      </div>
+    </ThemeProvider>
+
+  );
 }
 
-export default App
+export default App;
