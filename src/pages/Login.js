@@ -1,12 +1,11 @@
 import React, { useState } from 'react'
 import { useAuth } from '../context/AuthContext'
 import { useNavigate, Link } from 'react-router-dom'
-import { Alert } from './Alert'
-import logo from '../assets/img/logo.svg'
-import logotec from '../assets/img/logotec.svg'
-import { Typography, Toolbar, AppBar, Button, TextField } from '@mui/material'
+import { Alert } from '../components/Alert'
+import { Button, TextField } from '@mui/material'
+import Navbar from '../components/Navbar'
 
-function Login() {
+const Login = () => {
 
     const [user, setUser] = useState({
         email: '',
@@ -33,7 +32,7 @@ function Login() {
     }
 
     const handleResetPassword = async () => {
-        if (!user.email) return setError('Please enter your email')
+        if (!user.email) return setError('Por favor, ingresa tu correo.')
         try {
             await resetPassword(user.email)
             setError('We sent you an email with a link to reset your password')
@@ -43,27 +42,14 @@ function Login() {
     }
 
     return (
-        <div className='w-full max-w-xs m-auto'>
+        <>
+            <Navbar showLogout={false}></Navbar>
 
-            <AppBar position="fixed" color="primary">
-                <Toolbar>
-                    <img src={logo} className='img-fluid mr-4'></img>
-                    <Typography className='text-center' variant="h6" sx={{ flexGrow: 1 }}>
-                        Cuestionario de percepción de clima laboral y no discriminación
-                    </Typography>
-                    <img src={logotec} className='img-fluid mr-2'></img>
-                </Toolbar>
-            </AppBar>
-
-            <div className='mt-20'>
-
-                <br></br>
+            <div className='w-full max-w-xs m-auto'>
 
                 {error && <Alert message={error}></Alert>}
 
-                <form
-                    //onSubmit={handleSubmit}
-                    className='bg-light shadow-md rounded px-8 pt-6 pb-6 mb-4'>
+                <form className='bg-light shadow-md rounded px-8 pt-6 pb-6 mb-4'>
 
                     <div className='mb-4'>
                         <label
@@ -72,6 +58,7 @@ function Login() {
                             Correo:
                         </label>
                         <TextField
+                            id='email'
                             type='email'
                             name='email'
                             className='w-full bg-white'
@@ -87,6 +74,7 @@ function Login() {
                             Contraseña:
                         </label>
                         <TextField
+                            id='password'
                             type='password'
                             name='password'
                             className='w-full bg-white'
@@ -104,20 +92,20 @@ function Login() {
                             <p>Ingresar</p>
                         </Button>
 
-                        <a
+                        <button
                             onClick={handleResetPassword}
                             className='inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800'>
                             Olvide mi contraseña
-                        </a>
+                        </button>
                     </div>
 
                 </form>
+
+                <p className='text-blue-800 my-4 text-sm flex justify-between px-3'>No tengo una cuenta: <Link className='hover:text-blue-500' to='/register'>Registrarse</Link> </p>
+
             </div>
-
-            <p className='text-blue-800 my-4 text-sm flex justify-between px-3'>No tengo una cuenta <Link className='hover:text-blue-500' to='/register'>Registrarse</Link> </p>
-
-        </div>
+        </>
     )
 }
 
-export default Login
+export default Login;
