@@ -82,8 +82,8 @@ export const FormProvider = ({ children }) => {
         pregunta_56: '',
     });
 
-    const updateFormData = (key, value) => {
-        setFormData(prevData => ({ ...prevData, [key]: value }));
+    const updateFormData = (name, value) => {
+        setFormData(prevData => ({ ...prevData, [name]: value }));
     };
 
     return (

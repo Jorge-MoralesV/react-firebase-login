@@ -4,6 +4,13 @@ import { useForm } from '../context/FormContext';
 
 const CuestionarioPt8 = () => {
 
+    const { formData, updateFormData } = useForm();
+
+    const handleChange = (event) => {
+        const { name, value } = event.target;
+        updateFormData(name, value);
+    }
+
     return (
         <>
             <div className='card p-4 pb-5 mb-4'>
@@ -20,8 +27,8 @@ const CuestionarioPt8 = () => {
                             row
                             id='id_51'
                             name="pregunta_51"
-                            /* onChange={(e) => updateFormData('pregunta_51', e.target.value)}
-                            value={formData.pregunta_51} */
+                            onChange={handleChange}
+                            value={formData.pregunta_51}
                         >
                             <FormControlLabel value="nunca" control={<Radio />} label="Nunca" />
                             <FormControlLabel value="algunas-veces" control={<Radio />} label="Algunas veces" />
@@ -38,8 +45,8 @@ const CuestionarioPt8 = () => {
                             row
                             id='id_52'
                             name="pregunta_52"
-                            /* onChange={(e) => updateFormData('pregunta_52', e.target.value)}
-                            value={formData.pregunta_52} */
+                            onChange={handleChange}
+                            value={formData.pregunta_52}
                         >
                             <FormControlLabel value="nunca" control={<Radio />} label="Nunca" />
                             <FormControlLabel value="algunas-veces" control={<Radio />} label="Algunas veces" />
@@ -51,7 +58,7 @@ const CuestionarioPt8 = () => {
 
             </div>
 
-            {/* <div className='card p-4 pb-5 mb-4'>
+            <div className='card p-4 pb-5 mb-4'>
 
                 <label
                     className='block text-center font-bold mb-4'>
@@ -65,7 +72,7 @@ const CuestionarioPt8 = () => {
                             row
                             id='id_53'
                             name="pregunta_53"
-                            onChange={(e) => updateFormData('pregunta_53', e.target.value)}
+                            onChange={handleChange}
                             value={formData.pregunta_53}
                         >
                             <FormControlLabel value="nunca" control={<Radio />} label="Nunca" />
@@ -83,7 +90,7 @@ const CuestionarioPt8 = () => {
                             row
                             id='id_54'
                             name="pregunta_54"
-                            onChange={(e) => updateFormData('pregunta_54', e.target.value)}
+                            onChange={handleChange}
                             value={formData.pregunta_54}
                         >
                             <FormControlLabel value="nunca" control={<Radio />} label="Nunca" />
@@ -101,7 +108,7 @@ const CuestionarioPt8 = () => {
                             row
                             id='id_55'
                             name="pregunta_55"
-                            onChange={(e) => updateFormData('pregunta_55', e.target.value)}
+                            onChange={handleChange}
                             value={formData.pregunta_55}
                         >
                             <FormControlLabel value="nunca" control={<Radio />} label="Nunca" />
@@ -119,7 +126,7 @@ const CuestionarioPt8 = () => {
                             row
                             id='id_56'
                             name="pregunta_56"
-                            onChange={(e) => updateFormData('pregunta_56', e.target.value)}
+                            onChange={handleChange}
                             value={formData.pregunta_56}
                         >
                             <FormControlLabel value="nunca" control={<Radio />} label="Nunca" />
@@ -130,7 +137,7 @@ const CuestionarioPt8 = () => {
                     </FormControl>
                 </div>
 
-            </div> */}
+            </div>
         </>
     )
 };

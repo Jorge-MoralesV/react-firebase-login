@@ -1,8 +1,15 @@
-import React, {  } from 'react'
+import React, { } from 'react'
 import { Radio, RadioGroup, FormControl, FormControlLabel, FormLabel } from '@mui/material'
 import { useForm } from '../context/FormContext';
 
 const CuestionarioPt3 = () => {
+
+    const { formData, updateFormData } = useForm();
+
+    const handleChange = (event) => {
+        const { name, value } = event.target;
+        updateFormData(name, value);
+    }
 
     return (
         <div
@@ -20,8 +27,8 @@ const CuestionarioPt3 = () => {
                         row
                         id='id_9'
                         name="pregunta_9"
-                        /* onChange={(e) => updateFormData('pregunta_9', e.target.value)}
-                        value={formData.pregunta_9} */
+                        onChange={handleChange}
+                        value={formData.pregunta_9}
                     >
                         <FormControlLabel value="nunca" control={<Radio />} label="Nunca" />
                         <FormControlLabel value="algunas-veces" control={<Radio />} label="Algunas veces" />
@@ -38,8 +45,8 @@ const CuestionarioPt3 = () => {
                         row
                         id='id_10'
                         name="pregunta_10"
-                        /* onChange={(e) => updateFormData('pregunta_10', e.target.value)}
-                        value={formData.pregunta_10} */
+                        onChange={handleChange}
+                        value={formData.pregunta_10}
                     >
                         <FormControlLabel value="nunca" control={<Radio />} label="Nunca" />
                         <FormControlLabel value="algunas-veces" control={<Radio />} label="Algunas veces" />
@@ -49,14 +56,14 @@ const CuestionarioPt3 = () => {
                 </FormControl>
             </div>
 
-            {/* <div className='mb-4'>
+            <div className='mb-4'>
                 <FormControl>
                     <FormLabel >11.	En su centro de trabajo la competencia por mejores puestos, condiciones laborales o salariales es justas.</FormLabel>
                     <RadioGroup
                         row
                         id='id_11'
                         name="pregunta_11"
-                        onChange={(e) => updateFormData('pregunta_11', e.target.value)}
+                        onChange={handleChange}
                         value={formData.pregunta_11}
                     >
                         <FormControlLabel value="nunca" control={<Radio />} label="Nunca" />
@@ -74,7 +81,7 @@ const CuestionarioPt3 = () => {
                         row
                         id='id_12'
                         name="pregunta_12"
-                        onChange={(e) => updateFormData('pregunta_12', e.target.value)}
+                        onChange={handleChange}
                         value={formData.pregunta_12}
                     >
                         <FormControlLabel value="nunca" control={<Radio />} label="Nunca" />
@@ -92,7 +99,7 @@ const CuestionarioPt3 = () => {
                         row
                         id='id_13'
                         name="pregunta_13"
-                        onChange={(e) => updateFormData('pregunta_13', e.target.value)}
+                        onChange={handleChange}
                         value={formData.pregunta_13}
                     >
                         <FormControlLabel value="nunca" control={<Radio />} label="Nunca" />
@@ -110,7 +117,7 @@ const CuestionarioPt3 = () => {
                         row
                         id='id_14'
                         name="pregunta_14"
-                        onChange={(e) => updateFormData('pregunta_14', e.target.value)}
+                        onChange={handleChange}
                         value={formData.pregunta_14}
                     >
                         <FormControlLabel value="nunca" control={<Radio />} label="Nunca" />
@@ -119,7 +126,7 @@ const CuestionarioPt3 = () => {
                         <FormControlLabel value="siempre" control={<Radio />} label="Siempre" />
                     </RadioGroup>
                 </FormControl>
-            </div> */}
+            </div>
 
         </div>
     )

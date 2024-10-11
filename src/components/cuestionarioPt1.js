@@ -4,6 +4,13 @@ import { useForm } from '../context/FormContext';
 
 const CuestionarioPt1 = () => {
 
+    const { formData, updateFormData } = useForm();
+
+    const handleChange = (event) => {
+        const { name, value } = event.target;
+        updateFormData(name, value);
+    }
+
     return (
         <div className='card p-4 pb-5 mb-4'>
 
@@ -18,9 +25,9 @@ const CuestionarioPt1 = () => {
                         id='id_sexo'
                         aria-labelledby='sexo-label'
                         name="sexo"
-                        /* onChange={(e) => updateFormData('sexo', e.target.value)}
-                        value={formData.sexo} */
                         row
+                        value={formData.sexo}
+                        onChange={handleChange}
                     >
                         <FormControlLabel value="femenino" control={<Radio />} label="Femenino" />
                         <FormControlLabel value="masculino" control={<Radio />} label="Masculino" />
@@ -36,9 +43,9 @@ const CuestionarioPt1 = () => {
                         required
                         id='id_edad'
                         name="edad"
-                        /* onChange={(e) => updateFormData('edad', e.target.value)}
-                        value={formData.edad} */
                         row
+                        value={formData.edad}
+                        onChange={handleChange}
                     >
                         <FormControlLabel value="15-29" control={<Radio />} label="15 a 29" />
                         <FormControlLabel value="30-39" control={<Radio />} label="30 a 39" />
@@ -50,7 +57,7 @@ const CuestionarioPt1 = () => {
                 </FormControl>
             </div>
 
-            {/*<div className='mb-4'>
+            <div className='mb-4'>
                 <FormControl sx={{ minWidth: 120 }} fullWidth>
                     <FormLabel >Estado civil o conyugal</FormLabel>
                     <Select
@@ -58,7 +65,7 @@ const CuestionarioPt1 = () => {
                         name='estado_civil'
                         defaultValue=''
                         displayEmpty
-                        onChange={(e) => updateFormData('estado_civil', e.target.value)}
+                        onChange={handleChange}
                         value={formData.estado_civil}
                         inputProps={{ 'aria-label': 'Without label' }}
                     >
@@ -82,7 +89,7 @@ const CuestionarioPt1 = () => {
                         name='antiguedad'
                         defaultValue=''
                         displayEmpty
-                        onChange={(e) => updateFormData('antiguedad', e.target.value)}
+                        onChange={handleChange}
                         value={formData.antiguedad}
                         inputProps={{ 'aria-label': 'Without label' }}
                     >
@@ -105,7 +112,7 @@ const CuestionarioPt1 = () => {
                         name='escolaridad'
                         defaultValue=''
                         displayEmpty
-                        onChange={(e) => updateFormData('escolaridad', e.target.value)}
+                        onChange={handleChange}
                         value={formData.escolaridad}
                         inputProps={{ 'aria-label': 'Without label' }}
                     >
@@ -133,7 +140,7 @@ const CuestionarioPt1 = () => {
                         name='horario_entrada'
                         defaultValue=''
                         displayEmpty
-                        onChange={(e) => updateFormData('horario_entrada', e.target.value)}
+                        onChange={handleChange}
                         value={formData.horario_entrada}
                         inputProps={{ 'aria-label': 'Without label' }}
                     >
@@ -159,7 +166,7 @@ const CuestionarioPt1 = () => {
                         name='horario_salida'
                         defaultValue=''
                         displayEmpty
-                        onChange={(e) => updateFormData('horario_salida', e.target.value)}
+                        onChange={handleChange}
                         value={formData.horario_salida}
                         inputProps={{ 'aria-label': 'Without label' }}
                     >
@@ -188,7 +195,7 @@ const CuestionarioPt1 = () => {
                     <RadioGroup
                         id='id_plaza'
                         name='plaza'
-                        onChange={(e) => updateFormData('plaza', e.target.value)}
+                        onChange={handleChange}
                         value={formData.plaza}
                         row
                     >
@@ -210,7 +217,7 @@ const CuestionarioPt1 = () => {
                         className='w-full'
                         variant="outlined"
                         placeholder='Especifique'
-                        onChange={(e) => updateFormData('otro', e.target.value)}
+                        onChange={handleChange}
                         value={formData.otro}
                     ></TextField>
                 </FormControl>
@@ -222,7 +229,7 @@ const CuestionarioPt1 = () => {
                     <RadioGroup
                         id='id_discapacidad'
                         name="discapacidad"
-                        onChange={(e) => updateFormData('discapacidad', e.target.value)}
+                        onChange={handleChange}
                         value={formData.discapacidad}
                         row
                     >
@@ -240,7 +247,7 @@ const CuestionarioPt1 = () => {
                         name='cual_discapacidad'
                         defaultValue=''
                         displayEmpty
-                        onChange={(e) => updateFormData('cual_discapacidad', e.target.value)}
+                        onChange={handleChange}
                         value={formData.cual_discapacidad}
                         inputProps={{ 'aria-label': 'Without label' }}
                     >
@@ -267,7 +274,7 @@ const CuestionarioPt1 = () => {
                     <RadioGroup
                         id='id_sector_poblacion'
                         name="sector_poblacion"
-                        onChange={(e) => updateFormData('sector_poblacion', e.target.value)}
+                        onChange={handleChange}
                         value={formData.sector_poblacion}
                         row
                     >
@@ -285,7 +292,7 @@ const CuestionarioPt1 = () => {
                         name='cual_sector'
                         defaultValue=''
                         displayEmpty
-                        onChange={(e) => updateFormData('cual_sector', e.target.value)}
+                        onChange={handleChange}
                         value={formData.cual_sector}
                         inputProps={{ 'aria-label': 'Without label' }}
                     >
@@ -307,7 +314,7 @@ const CuestionarioPt1 = () => {
                     <RadioGroup
                         id='id_politica_igualdad'
                         name="politica_igualdad"
-                        onChange={(e) => updateFormData('politica_igualdad', e.target.value)}
+                        onChange={handleChange}
                         value={formData.politica_igualdad}
                         row
                     >
@@ -324,7 +331,7 @@ const CuestionarioPt1 = () => {
                     <RadioGroup
                         id='id_codigo_etica'
                         name="codigo_etica"
-                        onChange={(e) => updateFormData('codigo_etica', e.target.value)}
+                        onChange={handleChange}
                         value={formData.codigo_etica}
                         row
                     >
@@ -341,7 +348,7 @@ const CuestionarioPt1 = () => {
                     <RadioGroup
                         id='id_comite_igualdad'
                         name="comite_igualdad"
-                        onChange={(e) => updateFormData('comite_igualdad', e.target.value)}
+                        onChange={handleChange}
                         value={formData.comite_igualdad}
                         row
                     >
@@ -358,7 +365,7 @@ const CuestionarioPt1 = () => {
                     <RadioGroup
                         id='id_mecanismo_prevencion'
                         name="mecanismo_prevencion"
-                        onChange={(e) => updateFormData('mecanismo_prevencion', e.target.value)}
+                        onChange={handleChange}
                         value={formData.mecanismo_prevencion}
                         row
                     >
@@ -367,7 +374,7 @@ const CuestionarioPt1 = () => {
                         <FormControlLabel value="nose" control={<Radio />} label="No sé" />
                     </RadioGroup>
                 </FormControl>
-            </div> */}
+            </div>
 
         </div>
     )

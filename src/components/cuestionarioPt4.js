@@ -1,8 +1,15 @@
-import React, {  } from 'react'
+import React, { } from 'react'
 import { Radio, RadioGroup, FormControl, FormControlLabel, FormLabel } from '@mui/material'
 import { useForm } from '../context/FormContext';
 
 const CuestionarioPt4 = () => {
+
+    const { formData, updateFormData } = useForm();
+
+    const handleChange = (event) => {
+        const { name, value } = event.target;
+        updateFormData(name, value);
+    }
 
     return (
         <div
@@ -20,8 +27,8 @@ const CuestionarioPt4 = () => {
                         row
                         id='id_15'
                         name="pregunta_15"
-                        /* onChange={(e) => updateFormData('pregunta_15', e.target.value)}
-                        value={formData.pregunta_15} */
+                        onChange={handleChange}
+                        value={formData.pregunta_15}
                     >
                         <FormControlLabel value="nunca" control={<Radio />} label="Nunca" />
                         <FormControlLabel value="algunas-veces" control={<Radio />} label="Algunas veces" />
@@ -38,8 +45,8 @@ const CuestionarioPt4 = () => {
                         row
                         id='id_16'
                         name="pregunta_16"
-                        /* onChange={(e) => updateFormData('pregunta_16', e.target.value)}
-                        value={formData.pregunta_16} */
+                        onChange={handleChange}
+                        value={formData.pregunta_16}
                     >
                         <FormControlLabel value="nunca" control={<Radio />} label="Nunca" />
                         <FormControlLabel value="algunas-veces" control={<Radio />} label="Algunas veces" />
@@ -49,14 +56,14 @@ const CuestionarioPt4 = () => {
                 </FormControl>
             </div>
 
-            {/* <div className='mb-4'>
+            <div className='mb-4'>
                 <FormControl>
                     <FormLabel >17.	En su centro de trabajo las personas que se hacen cargo de personas o familiares que requieren cuidados enfrentan un clima laboral hostil.</FormLabel>
                     <RadioGroup
                         row
                         id='id_17'
                         name="pregunta_17"
-                        onChange={(e) => updateFormData('pregunta_17', e.target.value)}
+                        onChange={handleChange}
                         value={formData.pregunta_17}
                     >
                         <FormControlLabel value="nunca" control={<Radio />} label="Nunca" />
@@ -74,7 +81,7 @@ const CuestionarioPt4 = () => {
                         row
                         id='id_18'
                         name="pregunta_18"
-                        onChange={(e) => updateFormData('pregunta_18', e.target.value)}
+                        onChange={handleChange}
                         value={formData.pregunta_18}
                     >
                         <FormControlLabel value="nunca" control={<Radio />} label="Nunca" />
@@ -92,7 +99,7 @@ const CuestionarioPt4 = () => {
                         row
                         id='id_19'
                         name="pregunta_19"
-                        onChange={(e) => updateFormData('pregunta_19', e.target.value)}
+                        onChange={handleChange}
                         value={formData.pregunta_19}
                     >
                         <FormControlLabel value="nunca" control={<Radio />} label="Nunca" />
@@ -110,7 +117,7 @@ const CuestionarioPt4 = () => {
                         row
                         id='id_20'
                         name="pregunta_20"
-                        onChange={(e) => updateFormData('pregunta_20', e.target.value)}
+                        onChange={handleChange}
                         value={formData.pregunta_20}
                     >
                         <FormControlLabel value="nunca" control={<Radio />} label="Nunca" />
@@ -128,7 +135,7 @@ const CuestionarioPt4 = () => {
                         row
                         id='id_21'
                         name="pregunta_21"
-                        onChange={(e) => updateFormData('pregunta_21', e.target.value)}
+                        onChange={handleChange}
                         value={formData.pregunta_21}
                     >
                         <FormControlLabel value="nunca" control={<Radio />} label="Nunca" />
@@ -146,7 +153,7 @@ const CuestionarioPt4 = () => {
                         row
                         id='id_22'
                         name="pregunta_22"
-                        onChange={(e) => updateFormData('pregunta_22', e.target.value)}
+                        onChange={handleChange}
                         value={formData.pregunta_22}
                     >
                         <FormControlLabel value="nunca" control={<Radio />} label="Nunca" />
@@ -164,7 +171,7 @@ const CuestionarioPt4 = () => {
                         row
                         id='id_23'
                         name="pregunta_23"
-                        onChange={(e) => updateFormData('pregunta_23', e.target.value)}
+                        onChange={handleChange}
                         value={formData.pregunta_23}
                     >
                         <FormControlLabel value="nunca" control={<Radio />} label="Nunca" />
@@ -173,7 +180,7 @@ const CuestionarioPt4 = () => {
                         <FormControlLabel value="siempre" control={<Radio />} label="Siempre" />
                     </RadioGroup>
                 </FormControl>
-            </div> */}
+            </div>
 
         </div>
     )

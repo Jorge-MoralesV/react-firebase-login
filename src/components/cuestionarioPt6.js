@@ -4,6 +4,13 @@ import { useForm } from '../context/FormContext';
 
 const CuestionarioPt6 = () => {
 
+    const { formData, updateFormData } = useForm();
+
+    const handleChange = (event) => {
+        const { name, value } = event.target;
+        updateFormData(name, value);
+    }
+
     return (
         <div
             className='card p-4 pb-5 mb-4'>
@@ -20,8 +27,8 @@ const CuestionarioPt6 = () => {
                         row
                         id='id_38'
                         name="pregunta_38"
-                    /* onChange={(e) => updateFormData('pregunta_38', e.target.value)}
-                    value={formData.pregunta_38} */
+                        onChange={handleChange}
+                        value={formData.pregunta_38}
                     >
                         <FormControlLabel value="si" control={<Radio />} label="Si" />
                         <FormControlLabel value="no" control={<Radio />} label="No" />
@@ -36,8 +43,8 @@ const CuestionarioPt6 = () => {
                         row
                         id='id_39'
                         name="pregunta_39"
-                    /* onChange={(e) => updateFormData('pregunta_39', e.target.value)}
-                    value={formData.pregunta_39} */
+                        onChange={handleChange}
+                        value={formData.pregunta_39}
                     >
                         <FormControlLabel value="si" control={<Radio />} label="Si" />
                         <FormControlLabel value="no" control={<Radio />} label="No" />
@@ -45,14 +52,14 @@ const CuestionarioPt6 = () => {
                 </FormControl>
             </div>
 
-            {/* <div className='mb-4'>
+            <div className='mb-4'>
                 <FormControl>
                     <FormLabel >40.	En su centro de trabajo ha vivido contacto físico sexual no deseado.</FormLabel>
                     <RadioGroup
                         row
                         id='id_40'
                         name="pregunta_40"
-                        onChange={(e) => updateFormData('pregunta_40', e.target.value)}
+                        onChange={handleChange}
                         value={formData.pregunta_40}
                     >
                         <FormControlLabel value="si" control={<Radio />} label="Si" />
@@ -68,7 +75,7 @@ const CuestionarioPt6 = () => {
                         row
                         id='id_41'
                         name="pregunta_41"
-                        onChange={(e) => updateFormData('pregunta_41', e.target.value)}
+                        onChange={handleChange}
                         value={formData.pregunta_41}
                     >
                         <FormControlLabel value="si" control={<Radio />} label="Si" />
@@ -84,7 +91,7 @@ const CuestionarioPt6 = () => {
                         row
                         id='id_42'
                         name="pregunta_42"
-                        onChange={(e) => updateFormData('pregunta_42', e.target.value)}
+                        onChange={handleChange}
                         value={formData.pregunta_42}
                     >
                         <FormControlLabel value="si" control={<Radio />} label="Si" />
@@ -100,7 +107,7 @@ const CuestionarioPt6 = () => {
                         row
                         id='id_43'
                         name="pregunta_43"
-                        onChange={(e) => updateFormData('pregunta_43', e.target.value)}
+                        onChange={handleChange}
                         value={formData.pregunta_43}
                     >
                         <FormControlLabel value="si" control={<Radio />} label="Si" />
@@ -116,7 +123,7 @@ const CuestionarioPt6 = () => {
                         row
                         id='id_44'
                         name="pregunta_44"
-                        onChange={(e) => updateFormData('pregunta_44', e.target.value)}
+                        onChange={handleChange}
                         value={formData.pregunta_44}
                     >
                         <FormControlLabel value="si" control={<Radio />} label="Si" />
@@ -132,14 +139,14 @@ const CuestionarioPt6 = () => {
                         row
                         id='id_45'
                         name="pregunta_45"
-                        onChange={(e) => updateFormData('pregunta_45', e.target.value)}
+                        onChange={handleChange}
                         value={formData.pregunta_45}
                     >
                         <FormControlLabel value="si" control={<Radio />} label="Si" />
                         <FormControlLabel value="no" control={<Radio />} label="No" />
                     </RadioGroup>
                 </FormControl>
-            </div> */}
+            </div>
 
         </div>
     )
