@@ -25,7 +25,7 @@ const Register = () => {
         setError('');
         try {
             await signUp(user.email, user.password);
-            navigate('/')
+            navigate('/home')
         } catch (error) {
             if (error.code === "auth/weak-password") {
                 setError('La contraseña debe ser mínimo de 6 caracteres.');
