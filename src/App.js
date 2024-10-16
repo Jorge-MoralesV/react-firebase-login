@@ -19,11 +19,11 @@ function App() {
           <FormProvider>
             <Routes>
 
-              <Route path='/home' element={
+              <Route path='/' element={
                 <ProtectedRoute><Home /></ProtectedRoute>
               } />
 
-              <Route path='/' element={<Login />} />
+              <Route path='/login' element={<Login />} />
 
               <Route path='/register' element={<Register />} />
 
