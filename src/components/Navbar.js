@@ -14,7 +14,7 @@ export class Navbar extends Component {
         try {
             await logout();
         } catch (error) {
-            console.log('cerrar')
+            console.log(error);
         }
     }
 
@@ -25,13 +25,13 @@ export class Navbar extends Component {
         return (
             <AppBar position="fixed" color="primary">
                 <Toolbar>
-                    <img src={logo} className='img-fluid mr-4' alt='logo' width={50} height={50}></img>
+                    <img src={logo} className='img-fluid' alt='logo' width={55} height={55}></img>
 
                     <Typography className='text-center' variant="p" sx={{ flexGrow: 1 }}>
                         Cuestionario de percepción de clima laboral y no discriminación
                     </Typography>
 
-                    <img src={logotec} className='img-fluid mr-2' alt='logo-tec' width={50} height={55}></img>
+                    <img src={logotec} className='img-fluid mr-2' alt='logo-tec' width={70} height={70}></img>
 
                     {showLogout && (
                         <IconButton onClick={this.handleLogout}>
