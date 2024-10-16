@@ -9,7 +9,7 @@ export function ProtectedRoute({ children }) {
         <h1 className="bg-blue-100 border border-blue-400 text-blue-700 px-4 py-3 rounded">Cargando...</h1>
     </div>
 
-    if (!user) return <Navigate to='/login'></Navigate>
+    if (!user) return <Navigate to='/'></Navigate>
 
     return <>{children}</>
 
