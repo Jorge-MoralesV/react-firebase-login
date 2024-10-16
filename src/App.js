@@ -6,7 +6,6 @@ import { AuthProvider } from './context/AuthContext'
 import theme from './temaConfig'
 import Home from './pages/Home'
 import Login from './pages/Login'
-import Register from './pages/Register'
 import FormProvider from './context/FormContext'
 
 function App() {
@@ -24,8 +23,6 @@ function App() {
               } />
 
               <Route path='/login' element={<Login />} />
-
-              <Route path='/register' element={<Register />} />
 
             </Routes>
           </FormProvider>

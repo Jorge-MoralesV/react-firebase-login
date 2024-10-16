@@ -46,15 +46,6 @@ const Home = () => {
         }
     }, [user]);
 
-    /*     const user_email = user.email
-
-    /*     const [usuario, setUsuario] = useState(valorInicial);
-    
-        const handleInputChange = (e) => {
-            const { name, value } = e.target
-            setUsuario({ ...usuario, [name]: value })
-        }
-    */
     const handleSubmit = async () => {
         try {
             await saveQuestionnaire(user.uid, formData)
